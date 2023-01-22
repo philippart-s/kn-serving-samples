@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-from-quarkus
+  namespace: knative-samples
+spec:
+  template:
+    spec:
+      containers:
+        - image: wilda/hello-world-from-quarkus

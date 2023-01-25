@@ -7,4 +7,4 @@ spec:
   template:
     spec:
       containers:
-        - image: wilda/hello-world-from-quarkus
+        - image: wilda/hello-world-from-quarkus:1.2.0

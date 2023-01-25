@@ -17,12 +17,14 @@
 
 ### Deploy the application with kn
  - create a namespace: `kubectl create ns knative-samples`
- - create a service: `kn service create helloworld-from-quarkus --image wilda/hello-world-from-quarkus -n knative-samples`
+ - create a service: `kn service create helloworld-from-quarkus --env COLOR="blue" --image wilda/hello-world-from-quarkus:1.2.0 -n knative-samples`
  - get the URL: `kn service describe helloworld-from-quarkus -o url -n knative-samples`
  - test the application: `curl http://helloworld-from-quarkus.knative-samples.162.19.64.180.sslip.io/hello`
 
 ### Canary deployment with Knative
  - list the current revision of the application: `kn revisions list -n knative-samples`
- - deploy a new version of the application: `kn service update helloworld-from-quarkus -n knative-samples --env MSG="👋  Hello, Moon! 🌕"`
+ - deploy a new version of the application: `kn service update helloworld-from-quarkus -n knative-samples --env COLOR="green"`
  - split the traffic between the two revisions: `kn service update helloworld-from-quarkus --traffic helloworld-from-quarkus-00001=50 --traffic @latest=50 -n knative-samples`
+ - display the conf: `kn revisions list -n knative-samples`
  - test the application (twice): `curl http://helloworld-from-quarkus.knative-samples.162.19.64.180.sslip.io/hello`
+ - delete the service: `kn service delete helloworld-from-quarkus -n knative-samples`

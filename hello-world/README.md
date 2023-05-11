@@ -11,7 +11,7 @@
  - apply the CR: `kubectl apply -f ./hello-world/service.yaml`
  - get the URL: `kubectl get ksvc helloworld-from-quarkus  --output=custom-columns=NAME:.metadata.name,URL:.status.url -n knative-samples`
  - test the application: `curl http://helloworld-from-quarkus.knative-samples.162.19.64.180.sslip.io/hello`
- - display the pods: `kubectl get pods -n knative-samples`
+ - display the pods: `kubectl get pods -n knative-samples -w`
  - wait 30s and display again the pods
  - delete the application : `kubectl delete -f ./hello-world/service.yaml`
 

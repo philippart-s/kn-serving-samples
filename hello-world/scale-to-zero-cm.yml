@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-autoscaler
+  namespace: knative-serving
+  labels:
+    app.kubernetes.io/component: autoscaler
+    app.kubernetes.io/name: knative-serving
+    app.kubernetes.io/version: devel
+data:
+  scale-to-zero-grace-period: "20s"
+  stable-window: "6s"

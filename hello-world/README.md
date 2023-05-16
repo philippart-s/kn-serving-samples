@@ -6,6 +6,7 @@
  - Dockerfile: [Dockerfile.jvm](https://github.com/philippart-s/hello-world-from-quarkus/blob/main/src/main/docker/Dockerfile.jvm)
 
 ### Deploy the application with kubectl
+ - To configure a shorter period for scale to zero apply the ConfigMap `scale-to-zero-cm.yml`: `apply -f ./hello-world/scale-to-zero-cm.yml`
  - create a [service.yaml](./service.yaml) file
  - create a namespace: `kubectl create ns knative-samples`
  - apply the CR: `kubectl apply -f ./hello-world/service.yaml`
